@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #slide-title{
+            color: #fff;
+            position: relative;
+            top: -520px;
+        }
+        #slide-des{
+            position: relative;
+            top: -80px;
+            font-size: 30px;
+        }
+        .btn{
+            position: relative;
+            top: -210px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 550px;
+        }
+        #pre-btn,#next-btn {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <img src="" id="img" alt="" width="50%", height="500px">
+        <h1 id="slide-title"></h1>
+        <p id="slide-des"></p>
+        <div class="btn">
+        <button id="pre-btn">Previous</button>
+        <button id="next-btn" onclick="nextbtn()">Next</button>
+    </div>
+    </div>
+</body>
+</html>
+<script>
+    const sliders = [{
+        image: "https://cdn.photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg",
+        title:"slide 1",
+        description:"First Image"
+    },
+    {
+        image:"http://www.pixelstalk.net/wp-content/uploads/2016/07/1080p-HD-Image-Nature-Download.jpg",
+        title:"slide 2",
+        description:"Second Image"
+    },
+    {
+        image:"https://universemagazine.com/wp-content/uploads/2022/08/zm4nfgq29yi91-1536x1536-1.jpg",
+        title:"slide 3",
+        description:"Third Image"
+    },
+    {
+        image:"https://wallpaperaccess.com/full/366960.jpg",
+        title:"slide 4",
+        description:"Fourth Image"
+    },
+    {
+        image:"https://www.pixelstalk.net/wp-content/uploads/2016/10/Nature-background-free-download.jpg",
+        title:"slide 5",
+        description:"fifth Image"
+    }]
+
+    let currentIndex = 0
+    const ShowSlide = () => {
+        const slide = sliders[currentIndex]
+        // console.log(slide.image);
+        // console.log(slide.title);
+        // console.log(slide.description);
+        document.getElementById("img").src = slide.image
+        document.getElementById("slide-title").innerHTML = slide.title
+        document.getElementById("slide-des").innerHTML = slide.description
+    }
+
+    const nextbtn = () => {
+        currentIndex ++
+        // console.log(currentIndex)
+        if (currentIndex >= sliders.length) 
+            currentIndex = 0;
+        ShowSlide()
+    }
+    
+    document.getElementById("pre-btn").addEventListener("click", ()=>{
+        currentIndex--
+        if(currentIndex < 0){
+            currentIndex = slide.length - 1
+        }
+        ShowSlide()
+    })
+    
+    // setInterval , setTimeout , clearInterval
+    
+    setInterval(() => {
+        // const slide = sliders[currentIndex]
+        currentIndex ++
+        if(currentIndex >= sliders.length)
+           currentIndex = 0
+        ShowSlide()
+    },1000)
+
+    ShowSlide()
+</script>

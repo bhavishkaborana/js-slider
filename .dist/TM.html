@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html id="html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traversal methods</title>
+</head>
+<body>
+    <div id="Head">
+       <h1 id="topic">Traversal Methods</h1>
+       <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque velit numquam porro, nihil cumque consequuntur quaerat dignissimos neque vel provident totam voluptatem magni est, accusantium labore dolores consectetur nemo nostrum.</p>
+    </div>
+</body>
+</html>
+<script>
+// parentElement , parentNode - return something
+
+let a = document.getElementById("html").parentNode
+console.log(a);
+
+// children , childNodes
+let b = document.getElementById("Head").childNodes
+console.log(b);
+
+// firstChild , firstElementChild
+let c = document.getElementById("Head").firstElementChild
+console.log(c);
+
+// lastChild , LastElementChild
+let d = document.getElementById("Head").lastElementChild
+console.log(d);
+
+// nextSibling , nextElementSibling
+let e = document.getElementById("topic").nextElementSibling
+console.log(e);
+
+// previoussiblings , previousElementSibling
+let f = document.getElementById("para").previousElementSibling
+console.log(f);
+</script>
